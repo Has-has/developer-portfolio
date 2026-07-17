@@ -1,0 +1,99 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+
+  background: var(--bg);
+
+  color: var(--text);
+
+  overflow-x: hidden;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  position: relative;
+}
+
+/* ---------- Background Glow ---------- */
+
+body::before {
+  content: "";
+
+  position: fixed;
+
+  inset: 0;
+
+  background:
+    radial-gradient(circle at top right,
+      rgba(255, 255, 255, .05),
+      transparent 40%),
+    radial-gradient(circle at bottom left,
+      rgba(255, 255, 255, .03),
+      transparent 45%);
+
+  pointer-events: none;
+
+  z-index: -2;
+}
+
+/* ---------- Subtle Grid ---------- */
+
+body::after {
+  content: "";
+
+  position: fixed;
+
+  inset: 0;
+
+  background-image:
+    linear-gradient(rgba(255, 255, 255, .025) 1px,
+      transparent 1px),
+    linear-gradient(90deg,
+      rgba(255, 255, 255, .025) 1px,
+      transparent 1px);
+
+  background-size: 70px 70px;
+
+  opacity: .35;
+
+  pointer-events: none;
+
+  z-index: -1;
+}
+
+img {
+  max-width: 100%;
+
+  display: block;
+}
+
+a {
+  color: inherit;
+
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+section {
+  position: relative;
+
+  z-index: 2;
+}

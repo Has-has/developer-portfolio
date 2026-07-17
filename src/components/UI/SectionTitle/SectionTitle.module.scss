@@ -1,0 +1,51 @@
+.sectionTitle {
+  margin-bottom: 80px;
+}
+
+.center {
+  text-align: center;
+}
+
+.sectionTitle span {
+  display: inline-block;
+
+  margin-bottom: 18px;
+
+  color: var(--text-secondary);
+
+  text-transform: uppercase;
+
+  letter-spacing: 5px;
+
+  font-size: .82rem;
+
+  font-weight: 600;
+}
+
+.sectionTitle h2 {
+  max-width: 700px;
+
+  margin: 0;
+
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+
+  line-height: 1.05;
+
+  letter-spacing: -2px;
+}
+
+.center h2 {
+  margin-inline: auto;
+}
+
+@media (max-width:768px) {
+
+  .sectionTitle {
+    margin-bottom: 60px;
+  }
+
+  .sectionTitle h2 {
+    font-size: 2.5rem;
+  }
+
+}

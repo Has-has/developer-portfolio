@@ -1,0 +1,408 @@
+@use "../../styles/variables" as *;
+
+.work {
+  padding: 8rem 0;
+}
+
+.projects {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.project {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 4rem;
+  align-items: center;
+
+  padding: 2rem;
+
+  border-radius: 28px;
+
+  background: var(--surface);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.project:hover {
+  transform: translateY(-8px);
+
+  border-color: rgba(37, 99, 235, 0.25);
+
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.18),
+    0 0 0 1px rgba(37, 99, 235, 0.08);
+}
+
+.image {
+  overflow: hidden;
+
+  border-radius: 20px;
+
+  aspect-ratio: 16 / 10;
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.6s ease,
+    filter 0.6s ease;
+}
+
+.project:hover img {
+  transform: scale(1.05);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+
+  margin-bottom: 1.5rem;
+
+  border-radius: 50%;
+
+  background: rgba(37, 99, 235, 0.12);
+
+  color: var(--primary);
+
+  font-weight: 700;
+
+  font-size: 0.95rem;
+}
+
+.content h3 {
+  margin-bottom: 1rem;
+
+  font-size: clamp(1.7rem, 3vw, 2.2rem);
+
+  font-weight: 700;
+
+  line-height: 1.2;
+}
+
+.content p {
+  margin-top: 1.5rem;
+
+  color: var(--text-secondary);
+
+  line-height: 1.8;
+
+  max-width: 540px;
+}
+
+/* ======================================
+   Tech Stack
+====================================== */
+
+.tech {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 0.75rem;
+
+  margin-top: 0.5rem;
+}
+
+.badge {
+  padding: 0.45rem 0.95rem;
+
+  border-radius: 999px;
+
+  background: rgba(37, 99, 235, 0.08);
+
+  border: 1px solid rgba(37, 99, 235, 0.18);
+
+  color: var(--primary);
+
+  font-size: 0.85rem;
+
+  font-weight: 600;
+
+  transition: all 0.3s ease;
+}
+
+.project:hover .badge {
+  background: rgba(37, 99, 235, 0.14);
+
+  border-color: rgba(37, 99, 235, 0.3);
+
+  transform: translateY(-2px);
+}
+
+/* ======================================
+   Highlights
+====================================== */
+
+.highlights {
+  list-style: none;
+
+  margin-top: 2rem;
+
+  padding: 0;
+
+  display: grid;
+
+  gap: 0.85rem;
+}
+
+.highlights li {
+  display: flex;
+  align-items: center;
+
+  color: var(--text);
+
+  font-size: 0.95rem;
+
+  font-weight: 500;
+}
+
+/* ======================================
+   Actions
+====================================== */
+
+.actions {
+  display: flex;
+  align-items: center;
+
+  gap: 1rem;
+
+  margin-top: 2.25rem;
+}
+
+.actions a:first-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  padding: 0.85rem 1.5rem;
+
+  border-radius: 999px;
+
+  background: var(--primary);
+
+  color: #fff;
+
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.actions a:first-child svg {
+  transition: transform 0.3s ease;
+}
+
+.actions a:first-child:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 14px 34px rgba(37, 99, 235, 0.32),
+    0 6px 18px rgba(0, 0, 0, 0.14);
+}
+
+.actions a:first-child:hover svg {
+  transform: translateX(4px);
+}
+
+.actions a:last-child {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  width: 58px;
+
+  height: 58px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  background: rgba(255, 255, 255, 0.03);
+
+  color: var(--text);
+
+  font-size: 1.2rem;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.actions a:last-child svg {
+  transition: transform 0.35s ease;
+}
+
+.actions a:last-child:hover {
+  background: var(--primary);
+
+  color: white;
+
+  border-color: var(--primary);
+
+  box-shadow: 0 18px 40px rgba(37, 99, 235, 0.3);
+}
+
+.actions a:last-child:hover svg {
+  transform: rotate(10deg) scale(1.1);
+}
+
+/* ======================================
+   Responsive
+====================================== */
+
+@media (max-width: 992px) {
+  .project {
+    grid-template-columns: 1fr;
+
+    gap: 2.5rem;
+  }
+
+  .image {
+    order: -1;
+  }
+
+  .content {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .work {
+    padding: 6rem 0;
+  }
+
+  .project {
+    padding: 1.5rem;
+  }
+
+  .content h3 {
+    font-size: 1.8rem;
+  }
+
+  .actions {
+    flex-wrap: wrap;
+  }
+
+  .actions a:first-child {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ======================================
+   Alternating Layout
+====================================== */
+
+.project:nth-child(even) {
+  direction: rtl;
+}
+
+.project:nth-child(even) .content,
+.project:nth-child(even) .image {
+  direction: ltr;
+}
+
+/* ======================================
+   Image Overlay
+====================================== */
+
+.image {
+  position: relative;
+}
+
+.image::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(to top,
+      rgba(0, 0, 0, 0.15),
+      rgba(0, 0, 0, 0));
+
+  opacity: 0;
+
+  transition: opacity .35s ease;
+}
+
+.project:hover .image::after {
+  opacity: 1;
+}
+
+/* ======================================
+   Card Polish
+====================================== */
+
+.project {
+  overflow: hidden;
+
+  backdrop-filter: blur(12px);
+}
+
+.project:hover {
+  background:
+    linear-gradient(180deg,
+      rgba(255, 255, 255, .02),
+      rgba(255, 255, 255, .01));
+}
+
+/* ======================================
+   Smooth Typography
+====================================== */
+
+.content h3,
+.content p,
+.badge,
+.highlights li {
+  transition: color .3s ease;
+}
+
+.project:hover h3 {
+  color: var(--primary);
+}
+
+/* ======================================
+   Accessibility
+====================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .project,
+  .image img,
+  .actions a,
+  .badge {
+    transition: none;
+  }
+
+}

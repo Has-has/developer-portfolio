@@ -1,0 +1,579 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 120px 0 60px;
+  isolation: isolate;
+}
+
+/* ===========================
+   Background
+=========================== */
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(circle at 80% 15%, rgba(255, 255, 255, .05), transparent 32%),
+    radial-gradient(circle at 20% 85%, rgba(255, 255, 255, .035), transparent 40%);
+
+  z-index: -2;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(rgba(255, 255, 255, .02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, .02) 1px, transparent 1px);
+
+  background-size: 80px 80px;
+
+  opacity: .22;
+
+  z-index: -1;
+}
+
+/* ===========================
+   Layout
+=========================== */
+
+.grid {
+  display: grid;
+  grid-template-columns: 58% 42%;
+  align-items: center;
+  gap: 48px;
+  min-height: calc(100vh - 120px);
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.headingGroup {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  color: rgba(255, 255, 255, .78);
+
+  text-transform: uppercase;
+
+  letter-spacing: 3px;
+
+  font-size: .82rem;
+
+  font-weight: 600;
+}
+
+.line {
+  width: 90px;
+  height: 2px;
+
+  background: linear-gradient(90deg,
+      rgba(255, 255, 255, .9),
+      transparent);
+
+  border-radius: 999px;
+
+  animation: growLine 1.2s ease;
+}
+
+.left h1 {
+  font-size: clamp(5.8rem, 9vw, 7.8rem);
+
+  line-height: .92;
+
+  letter-spacing: -6px;
+
+  margin-bottom: 22px;
+
+  font-weight: 700;
+
+  text-wrap: balance;
+}
+
+.left p {
+  max-width: 580px;
+
+  color: #c7c7cc;
+
+  font-size: 1.12rem;
+
+  line-height: 1.95;
+
+  margin-bottom: 42px;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+
+  margin-bottom: 48px;
+  
+}
+
+.socials {
+  display: flex;
+  gap: 16px;
+}
+
+.socials a {
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, .03);
+
+  backdrop-filter: blur(12px);
+
+  border: 1px solid var(--border);
+
+  color: white;
+
+  font-size: 1.2rem;
+
+  transition: var(--transition-slow);
+}
+
+.socials a:hover {
+  transform:
+    translateY(-6px) rotate(6deg) scale(1.08);
+
+  background: var(--primary);
+
+  color: white;
+
+  border-color: var(--primary);
+
+  box-shadow:
+    0 18px 40px rgba(37, 99, 235, .30);
+}
+
+.socials a svg {
+  transition: transform 0.35s ease;
+}
+
+.socials a:hover svg {
+  transform: rotate(10deg) scale(1.1);
+}
+
+/* ===========================
+   Right Side
+=========================== */
+
+.right {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ===========================
+   Portrait
+=========================== */
+
+.imageWrapper {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  perspective: 1400px;
+}
+
+.imageWrapper::before {
+  content: "";
+
+  position: absolute;
+
+  width: 130%;
+  height: 130%;
+
+  border-radius: 50%;
+
+  background: radial-gradient(circle,
+      rgba(255, 255, 255, .10),
+      transparent 65%);
+
+  filter: blur(90px);
+
+  animation: pulseGlow 8s ease-in-out infinite;
+
+  z-index: 0;
+}
+
+.imageWrapper::after {
+  content: "";
+
+  position: absolute;
+
+  inset: -16px;
+
+  border-radius: 38px;
+
+  border: 1px solid rgba(255, 255, 255, .05);
+
+  pointer-events: none;
+
+  z-index: 1;
+}
+
+.imageWrapper img {
+  position: relative;
+
+  z-index: 2;
+
+  width: 540px;
+  max-width: 100%;
+
+  display: block;
+
+  border-radius: 30px;
+
+  border: 1px solid rgba(255, 255, 255, .08);
+
+  background: rgba(255, 255, 255, .02);
+
+  box-shadow: var(--shadow-lg);
+
+  animation: float 7s ease-in-out infinite;
+
+  transition:
+    transform .45s ease,
+    box-shadow .45s ease;
+}
+
+.imageWrapper:hover img {
+  transform:
+    perspective(1400px) rotateY(-3deg) translateY(-8px) scale(1.02);
+}
+
+/* Decorative Ring */
+
+.imageRing {
+  position: absolute;
+
+  width: 108%;
+  height: 108%;
+
+  border-radius: 34px;
+
+  border: 1px solid rgba(255, 255, 255, .04);
+
+  z-index: 1;
+}
+
+/* ===========================
+   Scroll Indicator
+=========================== */
+
+.scroll {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    width: 52px;
+    height: 52px;
+  
+    margin: -8rem auto 4rem;
+  
+    border-radius: 50%;
+  
+    color: var(--text-secondary);
+  
+    border: 1px solid rgba(255, 255, 255, .08);
+  
+    background: rgba(255, 255, 255, .03);
+  
+    transition: .35s ease;
+  
+    &:hover {
+      color: white;
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, .18);
+    }
+  
+    svg {
+      font-size: 1.8rem;
+    }
+}
+
+.scroll svg {
+  font-size: 2rem;
+
+  animation: float 2.5s ease-in-out infinite;
+
+  transition: .3s ease;
+}
+
+.scroll:hover svg {
+  opacity: 1;
+
+  transform: translateY(6px);
+}
+
+/* ===========================
+   Decorative Glow
+=========================== */
+
+.right::before {
+  content: "";
+
+  position: absolute;
+
+  width: 420px;
+  height: 420px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, .025);
+
+  filter: blur(110px);
+
+  z-index: -1;
+}
+
+/* ===========================
+   Small Hero Motion
+=========================== */
+
+.left>* {
+  animation: fadeUp .8s ease both;
+}
+
+.left>*:nth-child(1) {
+  animation-delay: .1s;
+}
+
+.left>*:nth-child(2) {
+  animation-delay: .2s;
+}
+
+.left>*:nth-child(3) {
+  animation-delay: .3s;
+}
+
+.left>*:nth-child(4) {
+  animation-delay: .4s;
+}
+
+.left>*:nth-child(5) {
+  animation-delay: .5s;
+}
+
+/* ==========================================
+   Large Desktop
+========================================== */
+
+@media (min-width: 1500px) {
+
+  .grid {
+    gap: 90px;
+  }
+
+  .left h1 {
+    font-size: 8rem;
+  }
+
+  .left p {
+    max-width: 700px;
+    font-size: 1.18rem;
+  }
+
+  .imageWrapper img {
+    width: 580px;
+  }
+
+}
+
+/* ==========================================
+   Laptop
+========================================== */
+
+@media (max-width: 1200px) {
+
+  .grid {
+    grid-template-columns: 55% 45%;
+    gap: 40px;
+  }
+
+  .left h1 {
+    font-size: clamp(4.8rem, 8vw, 6.5rem);
+  }
+
+  .left p {
+    max-width: 560px;
+  }
+
+  .imageWrapper img {
+    width: 470px;
+  }
+
+}
+
+/* ==========================================
+   Tablet
+========================================== */
+
+@media (max-width: 992px) {
+
+  .hero {
+    padding-top: 110px;
+    padding-bottom: 80px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+    text-align: center;
+  }
+
+  .right {
+    order: -1;
+  }
+
+  .left {
+    align-items: center;
+  }
+
+  .headingGroup {
+    justify-content: center;
+  }
+
+  .left h1 {
+    font-size: clamp(4rem, 10vw, 5.8rem);
+    letter-spacing: -4px;
+  }
+
+  .left p {
+    max-width: 700px;
+  }
+
+  .buttons {
+    justify-content: center;
+  }
+
+  .socials {
+    justify-content: center;
+  }
+
+  .imageWrapper img {
+    width: 430px;
+  }
+
+  .scroll {
+    display: none;
+  }
+
+}
+
+/* ==========================================
+   Mobile
+========================================== */
+
+@media (max-width: 576px) {
+
+  .hero {
+    min-height: auto;
+
+    padding-top: 95px;
+    padding-bottom: 60px;
+  }
+
+  .grid {
+    gap: 40px;
+  }
+
+  .headingGroup {
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .line {
+    width: 60px;
+  }
+
+  .eyebrow {
+    font-size: .72rem;
+    letter-spacing: 4px;
+  }
+
+  .left h1 {
+    font-size: 3.3rem;
+    line-height: .95;
+    letter-spacing: -2px;
+  }
+
+  .left p {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 32px;
+  }
+
+  .buttons {
+    width: 100%;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .buttons a,
+  .buttons button {
+    width: 100%;
+  }
+
+  .socials {
+    gap: 14px;
+  }
+
+  .socials a {
+    width: 52px;
+    height: 52px;
+  }
+
+  .imageWrapper img {
+    width: 310px;
+    border-radius: 24px;
+  }
+
+  .imageWrapper::after {
+    border-radius: 30px;
+  }
+
+}
+
+/* ==========================================
+   Small Mobile
+========================================== */
+
+@media (max-width: 380px) {
+
+  .left h1 {
+    font-size: 2.9rem;
+  }
+
+  .imageWrapper img {
+    width: 270px;
+  }
+
+}

@@ -1,0 +1,104 @@
+.loader {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: var(--bg);
+
+  z-index: 99999;
+
+  overflow: hidden;
+}
+
+.loader::before {
+  content: "";
+
+  position: absolute;
+
+  width: 750px;
+  height: 750px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(circle,
+      rgba(255, 255, 255, .08),
+      transparent 70%);
+
+  filter: blur(110px);
+
+  animation: pulseGlow 6s ease-in-out infinite;
+}
+
+.loader h1 {
+  position: relative;
+  z-index: 2;
+
+  font-family: "Space Grotesk", sans-serif;
+
+  font-size: clamp(4rem, 10vw, 6rem);
+
+  font-weight: 700;
+
+  letter-spacing: -4px;
+
+  margin-bottom: 18px;
+}
+
+.loader p {
+  position: relative;
+
+  z-index: 2;
+
+  color: var(--text-secondary);
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+
+  margin-bottom: 42px;
+}
+
+.line {
+  position: relative;
+
+  width: 140px;
+  height: 2px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, .08);
+}
+
+.line::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background: white;
+
+  animation: loadingBar 1.5s ease forwards;
+}
+
+@media (max-width:576px) {
+
+  .loader h1 {
+
+    font-size: 3.8rem;
+
+  }
+
+  .loader p {
+
+    font-size: .9rem;
+
+  }
+
+}
