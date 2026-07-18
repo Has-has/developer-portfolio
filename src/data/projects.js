@@ -14,9 +14,11 @@ const projects = [
 
     tech: [
       "React",
-      "SCSS",
+      "SCSS Modules",
       "Framer Motion",
       "Vite",
+      "JavaScript (ES6+)",
+      "HTML5",
     ],
 
     highlights: [
@@ -45,10 +47,11 @@ const projects = [
     image: midnightCakeImage,
 
     tech: [
-      "React",
-      "SCSS",
-      "Responsive Design",
-      "UI/UX",
+      "In Progress",
+      // "React",
+      // "SCSS",
+      // "Responsive Design",
+      // "UI/UX",
     ],
 
     highlights: [
@@ -62,7 +65,7 @@ const projects = [
     demo: "#",
 
     buttonText: "In Progress",
-
+    
     status: "in-progress",
   },
 ];
