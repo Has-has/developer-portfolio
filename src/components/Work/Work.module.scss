@@ -199,7 +199,7 @@
   border-radius: 999px;
 
   background: var(--primary);
-
+  border: 1px solid rgba(255, 255, 255, 0.12);
   color: #fff;
 
   font-weight: 600;
@@ -218,6 +218,8 @@
 
 .actions a:first-child:hover {
   transform: translateY(-3px);
+
+    border-color: rgba(255, 255, 255, 0.2);
 
   box-shadow:
     0 14px 34px rgba(37, 99, 235, 0.32),
