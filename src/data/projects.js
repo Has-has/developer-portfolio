@@ -25,7 +25,7 @@ const projects = [
       "Smooth Animations",
     ],
 
-    github: "https://github.com/Has-has",
+    github: "https://github.com/Has-has/developer-portfolio",
 
     demo: "#",
 
