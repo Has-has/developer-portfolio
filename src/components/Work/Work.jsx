@@ -11,6 +11,8 @@ import projects from "../../data/projects";
 
 import styles from "./Work.module.scss";
 
+import Button from "../UI/Button/Button";
+
 function Work() {
   return (
     <section
@@ -90,7 +92,7 @@ function Work() {
                 {/* Buttons */}
 
                 <div className={styles.actions}>
-                  <a
+                  <Button
                     href={project.demo}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -98,7 +100,7 @@ function Work() {
                     {project.buttonText}
                                   
                     {project.buttonText === "View Project" && <FaArrowRight />}
-                  </a>
+                  </Button>
                   <motion.a
                     href={project.github}
                     target="_blank"

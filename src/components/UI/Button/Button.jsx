@@ -7,14 +7,15 @@ function Button({
   target,
   rel,
   onClick,
+  className = "",
 }) {
-  const className = `${styles.button} ${styles[variant]}`;
+  const classes = `${styles.button} ${styles[variant]} ${className}`;
 
   if (href) {
     return (
       <a
         href={href}
-        className={className}
+        className={classes}
         target={target}
         rel={rel}
       >
@@ -25,7 +26,7 @@ function Button({
 
   return (
     <button
-      className={className}
+      className={classes}
       onClick={onClick}
       type="button"
     >
