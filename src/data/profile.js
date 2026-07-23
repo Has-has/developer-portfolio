@@ -25,7 +25,7 @@ const profile = {
   about: [
     "I'm a Software Engineering graduate and Full Stack Developer based in Ontario, Canada. I enjoy building modern, scalable web applications that combine clean architecture, intuitive interfaces, and reliable backend systems.",
 
-    "My experience spans React, Node.js, Express, Oracle, PostgreSQL and enterprise IT environments. I love solving real-world problems and continuously learning new technologies that help me build better software.",
+    "My experience spans React, Node.js, Express, Oracle, PostgreSQL and enterprise IT environments. Skilled in leveraging AI-assisted development tools including Claude, Gemini, ChatGPT and Lovable to accelerate development, improve code quality, and rapidly prototype solutions. I love solving real-world problems and continuously learning new technologies that help me build better software.",
   ],
 
   // =============================

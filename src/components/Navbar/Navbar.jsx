@@ -4,6 +4,7 @@ import { HiOutlineMenuAlt3, HiX } from "react-icons/hi";
 import useActiveSection from "../../hooks/useActiveSection";
 
 import styles from "./Navbar.module.scss";
+import resume from "../../assets/documents/Hasan-Abulaban-Resume.pdf";
 
 const links = [
   { id: "about", label: "About" },
@@ -90,10 +91,12 @@ function Navbar() {
           </nav>
 
           <a
-            href="#contact"
+            href={resume}
+            target="_blank"
+            rel="noopener noreferrer"
             className={styles.cta}
           >
-            Get in Touch
+            Resume
           </a>
 
           <button
@@ -126,11 +129,13 @@ function Navbar() {
           ))}
 
           <a
-            href="#contact"
+            href={resume}
+            target="_blank"
+            rel="noopener noreferrer"
             className={styles.mobileCta}
             onClick={() => setMenuOpen(false)}
           >
-            Get in Touch
+            Resume
           </a>
         </nav>
       </div>
